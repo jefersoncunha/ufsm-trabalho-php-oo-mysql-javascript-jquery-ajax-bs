@@ -23,8 +23,8 @@
 				 $this->servidor,
 				 $this->usuario,
 				 $this->senha,
-				 $this->db,
-				 $this->porta
+				 $this->db
+				//  $this->porta
 			) or die (mysqli_error());
 		}
 
