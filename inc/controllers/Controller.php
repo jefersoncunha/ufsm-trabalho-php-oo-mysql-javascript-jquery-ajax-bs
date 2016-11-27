@@ -1,13 +1,13 @@
 <?php
   include '../class/Clientes.class.php';
-
+  
   $op = $_POST["op"];
+  // var_dump($_POST);
 
 	if($op == "incluir"){
     $nome = $_POST["nome"];
 		$fone = $_POST["fone"];
 		$email = $_POST["email"];
-
 		$obj = new Clientes;
 		$obj->nome = $nome;
 		$obj->fone = $fone;
@@ -20,18 +20,18 @@
 		$nome = $_POST["nome"];
 		$fone = $_POST["fone"];
 		$email = $_POST["email"];
-
 		$obj = new Clientes;
 		$obj->id = $id;
 		$obj->nome = $nome;
 		$obj->fone = $fone;
 		$obj->email = $email;
-		$obj->atualizarClientes();
+		$obj->editar();
+    echo "ok";
 	}
 	elseif ($op == "excluir"){
 		$id = $_POST["id"];
 		$obj = new Clientes;
 		$obj->excluir($id);
-    echo "Cliente".$id."Excluido!";
+    echo "ok";
 	}
 ?>

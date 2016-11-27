@@ -18,7 +18,7 @@
         <li><a href="clientes.php">Gerenciar clientes</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="AdmListar">Admin</a></li>
+        <li><a href="usuarios.php">Admin</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

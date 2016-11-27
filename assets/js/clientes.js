@@ -3,14 +3,11 @@ $(".client-form").submit(function(event) {
   var status = $('#status');
   $.post("inc/controllers/controller.php",$(this).serialize(),
     function(resposta){
-      console.log(resposta);
-
       if(resposta == "ok"){
         status.slideDown();
         status.removeClass('alert alert-danger');
         status.addClass('alert alert-success');
         status.html('<strong> Cadastrado com sucesso </strong>');
-        CarregarClientes();
       }
       else{
         status.slideDown();
@@ -18,12 +15,8 @@ $(".client-form").submit(function(event) {
         status.addClass('alert alert-danger');
         status.html('<strong> :( Desculpe, tente novamente. </strong>');
       }
-      setTimeout(function(){
-        status.hide();
-      },5000);
-      setTimeout(function(){
-        $('#clienteModal').modal('hide');
-      },7000);
+
+      setTimeout(function(){  status.hide(); },5000);
     }
   );
 });
@@ -35,16 +28,12 @@ $(".client-form-edit").submit(function(event) {
 
   $.post("inc/controllers/controller.php",$(this).serialize(),
     function(resposta){
-      console.log(resposta);
-
-      $('#clienteModalEdit').html(resposta);
 
       if(resposta == "ok"){
         status.slideDown();
         status.removeClass('alert alert-danger');
         status.addClass('alert alert-success');
         status.html('<strong> Cliente Editado com sucesso </strong>');
-        CarregarClientes();
       }
       else{
         status.slideDown();
@@ -52,69 +41,86 @@ $(".client-form-edit").submit(function(event) {
         status.addClass('alert alert-danger');
         status.html('<strong> :( Desculpe, tente novamente. </strong>');
       }
-      setTimeout(function(){
-        status.hide();
-      },5000);
-      setTimeout(function(){
-        $('#clienteModalEdit').modal('hide');
-      },7000);
+      // status.html(resposta);
+      setTimeout(function(){  status.hide(); },5000);
+
     }
   );
 });
 
-function CarregarClientes(){
-    jQuery.get( 'inc/controllers/ControllerAjax.php?op=show',
-    function( data ) {
-       jQuery( "#clientesAjax" ).html( data );
-    });
-}
-jQuery(document).ready(function ($) {
-  CarregarClientes();
+
+$('#deleteModal').on('show', function() {
+    var id = $(this).data('id'),
+    removeBtn = $(this).find('.danger');
+    console.log("deleteModal"+id);
 });
 
+$('.confirm-delete').on('click', function(e) {
+    e.preventDefault();
+    var id = $(this).data('id');
+    $('#deleteModal').data('id', id).modal('show');
+    console.log("confirm"+id);
+});
 
-function deletar(event){
-  var element = event.target;
-  var cliente_id = element.getAttribute("cliente_id");
-  $('#deleteModal').modal('show');
-  $('#deleteModal').find('.modal-body').data( "data-client-id", cliente_id );
-  $('#deleteModal').find('.modal-title').text('Apagar Cliente ' + cliente_id)
-  console.log("confirm hike_id "+cliente_id);
-}
+$('#btnYes').click(function() {
 
-$('#ConfirmDelete').click(function() {
-    var id = $('.modal-body').data('data-client-id');
+    var id = $('#deleteModal').data('id');
+    var status = $('#status_delete');
+    $('#deleteModal').modal('hide');
     $.get('inc/controllers/ControllerAjax.php?op=excluir&id='+id,
-    function( data ) {
-      $('#status-excluir').slideDown();
-      $('#status-excluir').addClass('alert alert-success');
-      $('#status-excluir').html('<strong> Cliente'+id+' Excluido </strong>');
-       CarregarClientes();
+      function(data) {
+
+       if(data == "ok"){
+         status.slideDown();
+         status.removeClass('alert alert-danger');
+         status.addClass('alert alert-success');
+         status.html('<strong> Cliente Excluido '+id+' com sucesso </strong>');
+
+          setTimeout(function(){  location.reload(); },3000);
+       }
+       else{
+         status.slideDown();
+         status.removeClass('alert alert-success');
+         status.addClass('alert alert-danger');
+         status.html('<strong> :( Desculpe, tente novamente. </strong>');
+       }
+
     });
-    setTimeout(function(){
-      $('#status-excluir').slideDown();
-    },4000);
-    setTimeout(function(){
-      $('#deleteModal').modal('hide');
-    },5000);
 });
 
-function editar(event){
-  var element = event.target;
-  var cliente_id_edit = element.getAttribute("cliente_id_edit");
+$(document).ready(function () {
+    $("#buton-pesquisar").click(function(e){
+      e.preventDefault();
+      var palavra = $('#pesquisar').val();
+      console.log("buton-pesquisar ==> "+palavra);
 
-  console.log("cliente_id_edit => "+cliente_id_edit)
+      $.get('inc/controllers/controllerAjax.php',{palavra : palavra, op : 'pesquisar'},
+        function(data){
 
-  $.get('inc/controllers/ControllerAjax.php?op=buscaCliente&id='+cliente_id_edit,
+          setTimeout(function(){
+            $("#table-list").fadeOut();
+          },500);
 
-  function( data ) {
-     $('#form_edit').html(data);
-     $('#clienteModalEdit').modal('show');
-  });
+          setTimeout(function(){
+            $("#table-search").html(data);
+            $("#table-search").fadeIn();
+            $("#btn-list").fadeIn();
+          },1500);
 
+        }
+      )
+    });
+});
 
-  // $('#deleteModal').modal('show');
-  // $('#deleteModal').find('.modal-body').data( "data-client-id", cliente_id );
-  // $('#deleteModal').find('.modal-title').text('Apagar Cliente ' + cliente_id)
-  // console.log("confirm hike_id "+cliente_id);
-}
+$('#btn-list').click(function() {
+
+  setTimeout(function(){
+    $("#table-search").fadeOut();
+  },500);
+
+  setTimeout(function(){
+    $("#table-list").fadeIn();
+    $("#btn-list").fadeOut();
+  },1500);
+
+});
