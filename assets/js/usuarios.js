@@ -44,9 +44,8 @@ $(".user-form").submit(function(event) {
         status.slideDown();
         status.removeClass('alert alert-success');
         status.addClass('alert alert-danger');
-        // status.html('<strong> :( Desculpe, tente novamente! </strong>');
-        status.html(resposta);
+        status.html('<strong> :( Desculpe, tente novamente! </strong>');
       }
-      // setTimeout(function(){  status.hide(); },5000);
+      setTimeout(function(){  status.hide(); },5000);
     });
 });

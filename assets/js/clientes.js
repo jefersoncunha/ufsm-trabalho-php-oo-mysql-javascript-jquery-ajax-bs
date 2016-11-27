@@ -8,6 +8,7 @@ $(".client-form").submit(function(event) {
         status.removeClass('alert alert-danger');
         status.addClass('alert alert-success');
         status.html('<strong> Cadastrado com sucesso </strong>');
+        setTimeout(function(){  location.reload(); },2000);
       }
       else{
         status.slideDown();
