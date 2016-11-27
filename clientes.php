@@ -21,17 +21,17 @@
   </div>
   <div class="panel-body">
 
-<?php
-  include "inc/class/Clientes.class.php";
-  $obj = new Clientes;
-  $resultado = $obj->mostrar();
-  if($resultado){
-    echo '<div id="clientesAjax"></div>';
-  }else{
-    echo "<h2>:( Ainda não temos nenhum cliente cadastrado</h2>";
-  }
-?>
-</div>
+    <?php
+      include "inc/class/Clientes.class.php";
+      $obj = new Clientes;
+      $resultado = $obj->mostrar();
+      if($resultado){
+        echo '<div id="clientesAjax"></div>';
+      }else{
+        echo "<h2>:( Ainda não temos nenhum cliente cadastrado</h2>";
+      }
+    ?>
+  </div>
 </div>
 <?php include "inc/views/_partials/rodape.php"; ?>
 
