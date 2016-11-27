@@ -17,7 +17,7 @@
                         alt="">
                     <form class="login-form" method="post">
                     <input type="text" class="form-control" placeholder="nome" id="nome" name="nome" required autofocus style="margin-top: 10px;">
-                    <input type="text" class="form-control" placeholder="senha" id="senha" name="senha"required style="margin-top: 10px;">
+                    <input type="password" class="form-control" placeholder="senha" id="senha" name="senha"required style="margin-top: 10px;">
 										<input type="hidden" name="op" value="login"/>
 										<button class="btn btn-lg btn-secondary btn-block" type="submit" style="margin-top:20px">
                         Entrar
