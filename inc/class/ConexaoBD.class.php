@@ -17,7 +17,6 @@
 		public function conectar(){
 			global $con;
 
-
 			$con = mysqli_init();
 			$success = mysqli_real_connect(
 				 $con,
@@ -27,11 +26,6 @@
 				 $this->db,
 				 $this->porta
 			) or die (mysqli_error());
-
-			// Mudancas necessarias para rodar localmente
-			// $con = mysqli_connect($this->servidor, $this->usuario, $this->senha)
-			// or die (mysqli_error());
-			// mysqli_select_db($con, $this->db) or die(mysqli_error());
 		}
 
 		public function fechar(){
