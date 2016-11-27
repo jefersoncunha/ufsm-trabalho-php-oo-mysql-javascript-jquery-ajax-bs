@@ -2,7 +2,7 @@ $(".login-form").submit(function(event) {
   event.preventDefault();
   var status = $('#status');
 
-  $.post("inc/controllers/controllerUsuarios.php",$(this).serialize(),
+  $.post("inc/controllers/controller-usuarios.php",$(this).serialize(),
     function(resposta){
       if(resposta){
         status.slideDown();
@@ -32,7 +32,7 @@ $(".login-form").submit(function(event) {
 $(".user-form").submit(function(event) {
   event.preventDefault();
   var status = $('#status');
-  $.post("inc/controllers/controllerUsuarios.php",$(this).serialize(),
+  $.post("inc/controllers/controller-usuarios.php",$(this).serialize(),
     function(resposta){
       if(resposta == "ok"){
         status.slideDown();

@@ -68,7 +68,7 @@ $('#btnYes').click(function() {
     var id = $('#deleteModal').data('id');
     var status = $('#status_delete');
     $('#deleteModal').modal('hide');
-    $.get('inc/controllers/ControllerAjax.php?op=excluir&id='+id,
+    $.get('inc/controllers/controller-ajax.php?op=excluir&id='+id,
       function(data) {
 
        if(data == "ok"){
@@ -95,7 +95,7 @@ $(document).ready(function () {
       var palavra = $('#pesquisar').val();
       console.log("buton-pesquisar ==> "+palavra);
 
-      $.get('inc/controllers/controllerAjax.php',{palavra : palavra, op : 'pesquisar'},
+      $.get('inc/controllers/controller-ajax.php',{palavra : palavra, op : 'pesquisar'},
         function(data){
 
           setTimeout(function(){
