@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body">
         <div id="form_edit" class=""></div>
-        <div id="status" class=""></div>
+        <div id="status_edit" class=""></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>

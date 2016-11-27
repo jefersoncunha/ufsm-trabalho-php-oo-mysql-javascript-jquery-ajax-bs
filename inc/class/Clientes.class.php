@@ -23,25 +23,10 @@
 			$bd->fechar();
 		}
 
-		function mostrarClientesAlterar($id){
-			$bd = new ConexaoBD;
-			$bd->conectar();
-			return $bd->query("SELECT * FROM Clientes WHERE id='$id'");
-			$bd->fechar();
-		}
-
 		function buscarCliente($id){
 			$bd = new ConexaoBD;
 			$bd->conectar();
 			return $bd->query("SELECT * FROM Clientes WHERE id='$id'");
-			$bd->fechar();
-		}
-
-		function excluir($id){
-			$bd = new ConexaoBD;
-			$sql = "DELETE FROM Clientes WHERE id='$id'";
-			$bd->conectar();
-			$bd->query($sql);
 			$bd->fechar();
 		}
 
@@ -54,5 +39,14 @@
 					WHERE id='$this->id'");
 			$bd->fechar();
 		}
+
+		function excluir($id){
+			$bd = new ConexaoBD;
+			$sql = "DELETE FROM Clientes WHERE id='$id'";
+			$bd->conectar();
+			$bd->query($sql);
+			$bd->fechar();
+		}
+
 	}
 ?>

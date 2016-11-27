@@ -36,7 +36,9 @@
 <?php include "inc/views/_partials/rodape.php"; ?>
 
 
-<div id="status_edit"></div>
+<div id="log_status"></div>
+
+
 </div> <!-- END CONTAINER -->
 
   <?php include "inc/views/clientes/modalEdit.php"; ?>

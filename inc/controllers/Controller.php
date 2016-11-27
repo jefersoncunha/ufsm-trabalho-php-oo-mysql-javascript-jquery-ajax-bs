@@ -1,10 +1,6 @@
 <?php
   include '../class/Clientes.class.php';
 
-  // var_dump($_POST);
-  // var_dump($_GET);
-
-  // $op = $_GET["op"];
   $op = $_POST["op"];
 
 	if($op == "incluir"){
@@ -19,7 +15,7 @@
 		$obj->inserir();
     echo "ok";
 	}
-	elseif ($op == "Editar"){
+	elseif ($op == "editar"){
     $id = $_POST["id"];
 		$nome = $_POST["nome"];
 		$fone = $_POST["fone"];

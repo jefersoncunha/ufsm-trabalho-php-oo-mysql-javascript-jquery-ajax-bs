@@ -3,7 +3,7 @@
 
   $op = $_GET["op"];
 
-  if($op == "1893721"){
+  if($op == "show"){
 
     $obj = new Clientes;
     $resultado = $obj->mostrar();
@@ -80,22 +80,11 @@
 		$obj->excluir($id);
     echo "Cliente".$id."Excluido!";
 	}
-  elseif ($op == "buscaClienteJson"){
-		$id = $_GET["id"];
-		$obj = new Clientes;
-    $resultado = $obj->buscarCliente($id);
-
-    if ($resultado) {
-        $encode = array();
-        while($linha = mysqli_fetch_assoc($resultado)) {
-           $encode[] = $linha;
-        }
-        echo json_encode($encode);
-    }
-    if($op == "buscaCliente"){
-
+  if($op == "buscaCliente"){
       $obj = new Clientes;
+      $id = $_GET["id"];
       $resultado = $obj->buscarCliente($id);
+
       echo '
       <form id="client-form-edit" class="client-form-edit">
         <div class="form-group">
@@ -113,14 +102,14 @@
         <div class="form-group">
           <label for="email" class="control-label">Email:</label>
           <input type="email" class="form-control" name="email" id="email" placeholder="Informe seu Email" value="<?=$linha['email'];?>">
-          <input type="hidden" name="op" value="incluir"/>
+          <input type="hidden" name="op" value="editar"/>
         </div>
       <?php }
       echo '
         <button type="submit" class="btn btn-primary">Enviar!</button>
         </form>
       ';
-    }
+  }
 
-	}
+
 ?>

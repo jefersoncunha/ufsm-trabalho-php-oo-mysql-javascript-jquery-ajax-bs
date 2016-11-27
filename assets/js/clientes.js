@@ -1,10 +1,6 @@
 $(".client-form").submit(function(event) {
   event.preventDefault();
-
   var status = $('#status');
-
-  console.log("entrou no submit");
-
   $.post("inc/controllers/controller.php",$(this).serialize(),
     function(resposta){
       console.log(resposta);
@@ -32,8 +28,42 @@ $(".client-form").submit(function(event) {
   );
 });
 
+$(".client-form-edit").submit(function(event) {
+  event.preventDefault();
+
+  var status = $('#status_edit');
+
+  $.post("inc/controllers/controller.php",$(this).serialize(),
+    function(resposta){
+      console.log(resposta);
+
+      $('#clienteModalEdit').html(resposta);
+
+      if(resposta == "ok"){
+        status.slideDown();
+        status.removeClass('alert alert-danger');
+        status.addClass('alert alert-success');
+        status.html('<strong> Cliente Editado com sucesso </strong>');
+        CarregarClientes();
+      }
+      else{
+        status.slideDown();
+        status.removeClass('alert alert-success');
+        status.addClass('alert alert-danger');
+        status.html('<strong> :( Desculpe, tente novamente. </strong>');
+      }
+      setTimeout(function(){
+        status.hide();
+      },5000);
+      setTimeout(function(){
+        $('#clienteModalEdit').modal('hide');
+      },7000);
+    }
+  );
+});
+
 function CarregarClientes(){
-    jQuery.get( 'inc/controllers/ControllerAjax.php?op=1893721',
+    jQuery.get( 'inc/controllers/ControllerAjax.php?op=show',
     function( data ) {
        jQuery( "#clientesAjax" ).html( data );
     });
@@ -79,19 +109,8 @@ function editar(event){
 
   function( data ) {
      $('#form_edit').html(data);
-     $('#status_edit').html(data);
      $('#clienteModalEdit').modal('show');
-
-     
   });
-
-
-
-
-
-
-
-
 
 
   // $('#deleteModal').modal('show');
