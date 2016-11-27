@@ -14,21 +14,28 @@
         Listar Clientes
       </h2>
 
-      <a class="btn btn-default pull-right" title="Listar Cliente"
+      <a id="btn-list" class="btn btn-info pull-right" title="Listar Cliente" style="margin-top: 27px; display:none;">
+        Voltar Lista
+      </a>
+
+
+      <a class="btn btn-default pull-right" title="Cadastrar Cliente"
         href="clientes-cadastrar.php" style="margin-top:27px; margin-left:5px; margin-right:5px">
         Cadastrar Clientes
       </a>
 
+
       <form class="form-inline pull-right">
         <div class="form-group">
-          <input type="password" class="form-control" id="buscar" name="buscar" placeholder="Buscar por...">
+          <input type="text" class="form-control" name="pesquisar" id="pesquisar" placeholder="Buscar por..." value="">
         </div>
-        <button type="submit" class="btn btn-default">Buscar</button>
+        <button type="submit" class="btn btn-default" id="buton-pesquisar">Buscar</button>
       </form>
 
     <div class="clearfix"></div>
   </div>
-  <div class="panel-body">
+
+  <div class="panel-body" id="table-list">
 
 <?php
   include "inc/class/Clientes.class.php";
@@ -110,6 +117,8 @@
 ?>
 <div id="status_delete"></div>
 </div>
+<div class="panel-body" id="table-search">
+</div>
 
 </div>
 <?php include "inc/views/_partials/rodape.php"; ?>
@@ -141,6 +150,7 @@
 <?php include "inc/views/_partials/javascript.php"; ?>
 <script src="assets/js/jquery.validate.min.js"></script>
 <script src="assets/js/clientes.js"></script>
+
 
 </body>
 </html>

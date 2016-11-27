@@ -87,3 +87,40 @@ $('#btnYes').click(function() {
 
     });
 });
+
+$(document).ready(function () {
+    $("#buton-pesquisar").click(function(e){
+      e.preventDefault();
+      var palavra = $('#pesquisar').val();
+      console.log("buton-pesquisar ==> "+palavra);
+
+      $.get('inc/controllers/controllerAjax.php',{palavra : palavra, op : 'pesquisar'},
+        function(data){
+
+          setTimeout(function(){
+            $("#table-list").fadeOut();
+          },500);
+
+          setTimeout(function(){
+            $("#table-search").html(data);
+            $("#table-search").fadeIn();
+            $("#btn-list").fadeIn();
+          },1500);
+
+        }
+      )
+    });
+});
+
+$('#btn-list').click(function() {
+
+  setTimeout(function(){
+    $("#table-search").fadeOut();
+  },500);
+
+  setTimeout(function(){
+    $("#table-list").fadeIn();
+    $("#btn-list").fadeOut();
+  },1500);
+
+});

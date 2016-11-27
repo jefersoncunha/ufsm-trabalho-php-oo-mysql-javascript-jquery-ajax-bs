@@ -23,6 +23,17 @@
 			$bd->fechar();
 		}
 
+		function pesquisar($palavra){
+			$bd = new ConexaoBD;
+			$bd->conectar();
+			return $bd->query(
+				"SELECT * FROM Clientes
+				 WHERE  nome LIKE '%" . $palavra . "%'
+				 OR email LIKE '%" . $palavra  ."%'"
+			);
+			$bd->fechar();
+		}
+
 		function buscarCliente($id){
 			$bd = new ConexaoBD;
 			$bd->conectar();
