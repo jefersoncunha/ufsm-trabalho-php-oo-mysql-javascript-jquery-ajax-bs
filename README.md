@@ -3,6 +3,8 @@
 Requisitos para o trabalho:
 
 * Usuarios deve fazer login para acessar o sistema.
+* CRUD COMPLETO ( Create , Read, Update, Delete )
+* Feature Pesquisar 
 * Segunda tabela com pelo menos 4 atributos.
 
 ## BANCO DE DADOS
