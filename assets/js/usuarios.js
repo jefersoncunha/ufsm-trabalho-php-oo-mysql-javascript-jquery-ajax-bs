@@ -2,7 +2,7 @@ $(".login-form").submit(function(event) {
   event.preventDefault();
   var status = $('#status');
 
-  $.post("inc/controllers/controllerLogin.php",$(this).serialize(),
+  $.post("inc/controllers/controllerUsuarios.php",$(this).serialize(),
     function(resposta){
       if(resposta){
         status.slideDown();
@@ -26,6 +26,27 @@ $(".login-form").submit(function(event) {
           status.html(resposta);
         }
       }
-    }
-  );
+    });
+});
+
+$(".user-form").submit(function(event) {
+  event.preventDefault();
+  var status = $('#status');
+  $.post("inc/controllers/controllerUsuarios.php",$(this).serialize(),
+    function(resposta){
+      if(resposta == "ok"){
+        status.slideDown();
+        status.removeClass('alert alert-danger');
+        status.addClass('alert alert-success');
+        status.html('<strong> Cadastrado com sucesso!</strong>');
+      }
+      else{
+        status.slideDown();
+        status.removeClass('alert alert-success');
+        status.addClass('alert alert-danger');
+        // status.html('<strong> :( Desculpe, tente novamente! </strong>');
+        status.html(resposta);
+      }
+      // setTimeout(function(){  status.hide(); },5000);
+    });
 });

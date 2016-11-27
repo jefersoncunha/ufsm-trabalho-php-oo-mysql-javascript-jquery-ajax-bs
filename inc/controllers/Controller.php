@@ -1,7 +1,6 @@
 <?php
   include '../class/Clientes.class.php';
-  include '../class/Usuarios.class.php';
-
+  
   $op = $_POST["op"];
   // var_dump($_POST);
 

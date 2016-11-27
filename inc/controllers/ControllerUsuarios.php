@@ -1,9 +1,16 @@
 <?php
   include '../class/Usuarios.class.php';
 
-  // var_dump($_POST);
-
-  if ($_POST["op"] == "login"){
+  if($_POST["op"] == "incluir"){
+    $nome = $_POST["nome"];
+		$senha = $_POST["senha"];
+		$obj = new Usuarios;
+		$obj->nome = $nome;
+		$obj->senha = $senha;
+		$obj->inserir();
+    echo "ok";
+	}
+  elseif ($_POST["op"] == "login"){
 
     $senhaInput = $_POST["senha"];
     $nomeInput  = $_POST["nome"];
@@ -18,6 +25,6 @@
       echo "ok";
     }else
       echo "erro";
-
   }
+
 ?>

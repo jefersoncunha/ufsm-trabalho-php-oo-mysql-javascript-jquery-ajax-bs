@@ -33,11 +33,11 @@
 											session_destroy();
 										?>
                 </div>
-                <!-- <a href="cadastraAdm" class="text-center new-account">Criar uma Conta </a> -->
+                <a href="singup.php" class="text-center new-account">Criar uma conta!</a>
             </div>
         </div>
     </div>
     <?php include "inc/views/_partials/javascript.php" ?>
-		<script src="assets/js/login.js"></script>
+		<script src="assets/js/usuarios.js"></script>
   </body>
 </html>
