@@ -24,7 +24,7 @@
 				 $this->usuario,
 				 $this->senha,
 				 $this->db
-				//  $this->porta
+				 $this->porta
 			) or die (mysqli_error());
 		}
 
