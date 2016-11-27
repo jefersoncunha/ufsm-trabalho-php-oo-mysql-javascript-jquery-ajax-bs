@@ -78,7 +78,7 @@
 		$id = $_GET["id"];
 		$obj = new Clientes;
 		$obj->excluir($id);
-    echo "Cliente".$id."Excluido!";
+    echo "ok";
 	}
   if($op == "buscaCliente"){
       $obj = new Clientes;

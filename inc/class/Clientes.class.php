@@ -30,7 +30,7 @@
 			$bd->fechar();
 		}
 
-		function atualizarClientes(){
+		function atualizarCliente(){
 			$bd = new ConexaoBD;
 			$bd->conectar();
 			$bd->query(
