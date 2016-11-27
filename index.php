@@ -15,20 +15,29 @@
                 <div class="account-wall">
                     <img class="profile-img" src="http://jefersoncunha.com/assets/images/jef_100x100.png"
                         alt="">
-                    <form action="logarAdm" method="post">
+                    <form class="login-form" method="post">
                     <input type="text" class="form-control" placeholder="nome" id="nome" name="nome" required autofocus style="margin-top: 10px;">
                     <input type="text" class="form-control" placeholder="senha" id="senha" name="senha"required style="margin-top: 10px;">
-                    <button class="btn btn-lg btn-secondary btn-block" type="submit" style="margin-top:20px">
+										<input type="hidden" name="op" value="login"/>
+										<button class="btn btn-lg btn-secondary btn-block" type="submit" style="margin-top:20px">
                         Entrar
                     </button>
-
-
                     </form>
+										<div class="clearfix"></div>
+										<div id="status" class=""></div>
+										<?php
+											session_start();
+											if (isset($_SESSION['noLogin']) ){
+												echo '<div class="alert alert-danger" role="alert"><strong>Ops Desculpe :(</strong> faça seu login primeiro! </div>';
+											}
+											session_destroy();
+										?>
                 </div>
                 <!-- <a href="cadastraAdm" class="text-center new-account">Criar uma Conta </a> -->
             </div>
         </div>
     </div>
     <?php include "inc/views/_partials/javascript.php" ?>
+		<script src="assets/js/login.js"></script>
   </body>
 </html>

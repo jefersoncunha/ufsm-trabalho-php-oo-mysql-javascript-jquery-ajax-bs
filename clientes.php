@@ -1,3 +1,4 @@
+<?php include "inc/noLogin.php" ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -148,7 +149,6 @@
 </div>
 
 <?php include "inc/views/_partials/javascript.php"; ?>
-<script src="assets/js/jquery.validate.min.js"></script>
 <script src="assets/js/clientes.js"></script>
 
 

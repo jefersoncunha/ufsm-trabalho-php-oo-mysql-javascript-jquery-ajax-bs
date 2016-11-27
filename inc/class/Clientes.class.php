@@ -41,7 +41,7 @@
 			$bd->fechar();
 		}
 
-		function atualizarCliente(){
+		function editar(){
 			$bd = new ConexaoBD;
 			$bd->conectar();
 			$bd->query(

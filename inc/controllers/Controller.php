@@ -1,5 +1,6 @@
 <?php
   include '../class/Clientes.class.php';
+  include '../class/Usuarios.class.php';
 
   $op = $_POST["op"];
   // var_dump($_POST);
@@ -25,7 +26,7 @@
 		$obj->nome = $nome;
 		$obj->fone = $fone;
 		$obj->email = $email;
-		$obj->atualizarCliente();
+		$obj->editar();
     echo "ok";
 	}
 	elseif ($op == "excluir"){
