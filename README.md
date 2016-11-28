@@ -7,6 +7,20 @@ Requisitos para o trabalho:
 * Feature Pesquisar
 * Segunda tabela com pelo menos 4 atributos.
 
+---
+
+## Tecnologias Utilizadas
+
+* PHP - OO
+* MYSQL
+* HTML5
+* CSS3
+* Javascript
+* Bootstrap
+* jQuery
+
+---
+
 ## BANCO DE DADOS
 
 ```
@@ -25,6 +39,8 @@ CREATE TABLE Clientes(
 	PRIMARY KEY (id)
 );
 ```
+---
+
 ## CAMPOS INICIAIS
 ```
 INSERT INTO login(nome, senha) VALUES ('admin', '123');
@@ -36,7 +52,7 @@ INSERT INTO clientes(nome, email, fone) VALUES ('Cliente 2', 'cliente2@email.com
 INSERT INTO clientes(nome, email, fone) VALUES ('Cliente 3', 'cliente2@email.com', '55 99990000');
 
 ```
-
+---
 
 ## DISPONIVEL ONLINE
 
