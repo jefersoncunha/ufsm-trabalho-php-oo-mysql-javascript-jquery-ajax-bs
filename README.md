@@ -32,11 +32,11 @@ CREATE TABLE login(
 );
 
 CREATE TABLE Clientes(
-	id serial,
-	nome varchar(50),
-  email varchar(50),
-  fone varchar(50),
-	PRIMARY KEY (id)
+ id serial,
+ nome varchar(50),
+ email varchar(50),
+ fone varchar(50),
+ PRIMARY KEY (id)
 );
 ```
 ------
@@ -57,3 +57,5 @@ INSERT INTO clientes(nome, email, fone) VALUES ('Cliente 3', 'cliente2@email.com
 ## DISPONIVEL ONLINE
 
 http://edu.jef.link/controleclientes/
+
+
