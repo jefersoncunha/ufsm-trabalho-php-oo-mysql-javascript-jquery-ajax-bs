@@ -7,7 +7,7 @@ Requisitos para o trabalho:
 * Feature Pesquisar
 * Segunda tabela com pelo menos 4 atributos.
 
----
+------
 
 ## Tecnologias Utilizadas
 
@@ -19,7 +19,7 @@ Requisitos para o trabalho:
 * Bootstrap
 * jQuery
 
----
+------
 
 ## BANCO DE DADOS
 
@@ -39,7 +39,7 @@ CREATE TABLE Clientes(
 	PRIMARY KEY (id)
 );
 ```
----
+------
 
 ## CAMPOS INICIAIS
 ```
@@ -52,7 +52,7 @@ INSERT INTO clientes(nome, email, fone) VALUES ('Cliente 2', 'cliente2@email.com
 INSERT INTO clientes(nome, email, fone) VALUES ('Cliente 3', 'cliente2@email.com', '55 99990000');
 
 ```
----
+------
 
 ## DISPONIVEL ONLINE
 
