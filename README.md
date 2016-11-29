@@ -1,11 +1,12 @@
-#README TRABALHO PROGRAMACAO PHP
+#TRABALHO PROGRAMACAO PHP
 
 Requisitos para o trabalho:
 
 * Usuarios deve fazer login para acessar o sistema.
-* CRUD COMPLETO ( Create , Read, Update, Delete )
+* CRUD COMPLETO ( Create , Read, Update, Delete ).
 * Feature Pesquisar
 * Segunda tabela com pelo menos 4 atributos.
+* Pelo menos um atributo tem que ter máscara de entrada.
 
 ------
 
@@ -18,6 +19,7 @@ Requisitos para o trabalho:
 * Javascript
 * Bootstrap
 * jQuery
+* [jQuery Mask](https://github.com/igorescobar/jQuery-Mask-Plugin)
 
 ------
 
@@ -57,5 +59,3 @@ INSERT INTO clientes(nome, email, fone) VALUES ('Cliente 3', 'cliente2@email.com
 ## DISPONIVEL ONLINE
 
 http://edu.jef.link/controleclientes/
-
-

@@ -54,7 +54,12 @@
 <!-- END CONTAINER -->
 
 <?php include "inc/views/_partials/javascript.php"; ?>
+<script src="assets/js/jquery-mask.js"></script>
 <script src="assets/js/clientes.js"></script>
-
+<script>
+  $(document).ready(function () {
+    $('#fone').mask('(00) 00000-0000');
+  });
+</script>
 </body>
 </html>

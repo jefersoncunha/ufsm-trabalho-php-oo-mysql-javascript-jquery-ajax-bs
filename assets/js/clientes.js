@@ -90,6 +90,7 @@ $('#btnYes').click(function() {
 });
 
 $(document).ready(function () {
+
     $("#buton-pesquisar").click(function(e){
       e.preventDefault();
       var palavra = $('#pesquisar').val();

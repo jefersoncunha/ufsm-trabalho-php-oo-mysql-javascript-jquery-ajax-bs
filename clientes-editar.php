@@ -37,20 +37,20 @@ $id = $_GET["id"];
 $resultado = $obj->buscarCliente($id);
 while($linha=mysqli_fetch_assoc($resultado)){
 ?>
-          <div class="form-group">
-            <label for="name" class="control-label">Nome:</label>
-            <input type="text" class="form-control" name="nome" id="nome" placeholder="Informe seu Nome" value="<?=$linha['nome'];?>">
-          </div>
-          <div class="form-group">
-            <label for="fone" class="control-label">Fone:</label>
-            <input type="text" class="form-control" name="fone" id="fone" placeholder="Informe seu Telfone" value="<?=$linha['fone'];?>">
-          </div>
-          <div class="form-group">
-            <label for="email" class="control-label">Email:</label>
-            <input type="email" class="form-control" name="email" id="email" placeholder="Informe seu Email" value="<?=$linha['email'];?>">
-            <input type="hidden" name="op" value="editar"/>
-            <input type="hidden" name="id" value="<?=$linha['id'];?>"/>
-          </div>
+        <div class="form-group">
+          <label for="name" class="control-label">Nome:</label>
+          <input type="text" class="form-control" name="nome" id="nome" placeholder="Informe seu Nome" value="<?=$linha['nome'];?>">
+        </div>
+        <div class="form-group">
+          <label for="fone" class="control-label">Fone:</label>
+          <input type="text" class="form-control" name="fone" id="fone" placeholder="Informe seu Telfone" value="<?=$linha['fone'];?>">
+        </div>
+        <div class="form-group">
+          <label for="email" class="control-label">Email:</label>
+          <input type="email" class="form-control" name="email" id="email" placeholder="Informe seu Email" value="<?=$linha['email'];?>">
+          <input type="hidden" name="op" value="editar"/>
+          <input type="hidden" name="id" value="<?=$linha['id'];?>"/>
+        </div>
 <?php } ?>
 
         <button type="submit" class="btn btn-primary">Enviar!</button>
@@ -67,7 +67,13 @@ while($linha=mysqli_fetch_assoc($resultado)){
   <!-- END CONTAINER -->
 
   <?php include "inc/views/_partials/javascript.php"; ?>
+  <script src="assets/js/jquery-mask.js"></script>
   <script src="assets/js/clientes.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#fone').mask('(00) 00000-0000');
+    });
+  </script>
 
   </body>
 </html>
