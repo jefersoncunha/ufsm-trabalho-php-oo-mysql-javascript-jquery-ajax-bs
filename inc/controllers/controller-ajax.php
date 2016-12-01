@@ -115,71 +115,79 @@
       $palavra = $_GET["palavra"];
       $resultado = $obj->pesquisar($palavra);
 
-      echo '<table class="table table-striped table-bordered">
-          <tr>
-            <td>
-              <div>
-                <strong>
-                  <span class="style5">
-                    ID
-                  </span>
-                </strong>
-              </div>
-            </td>
-            <td>
-              <div>
-                <strong>
-                  <span class="style5">
-                    Nome
-                  </span>
-                </strong>
-              </div>
-            </td>
-            <td>
-              <div>
-                <strong>
-                  <span class="style5">
-                    Fone
-                  </span>
-                </strong>
-              </div>
-            </td>
-            <td>
-              <div>
-                <strong>
-                  <span class="style5">
-                    Email
-                  </span>
-                </strong>
-              </div>
-            </td>
-            <td>
-              <div>
-                <strong>
-                  <span class="style5">
-                    AÇÕES
-                  </span>
-                </strong>
-              </div>
-            </td>
-          </tr>';
-      while($linha=mysqli_fetch_assoc($resultado)){ ?>
-        <tr>
-          <td><?=$linha['id'];?></td>
-          <td><?=$linha['nome'];?></td>
-          <td><?=$linha['fone'];?></td>
-          <td><?=$linha['email'];?></td>
-          <td>
-              <a class="btn btn-default" onclick="editar(event);" cliente_id_edit="<?=$linha['id'];?>">
-              <span class="glyphicon glyphicon-edit"></span>
-            </a>
+          if(mysqli_num_rows($resultado)<=0){
+            echo '<div class="alert alert-danger">Nenhuma resultado encontrato com a palavra <strong>'.$palavra.'</strong> </div>';
+          }
+          else {
 
-            <a class="btn btn-default" onclick="deletar(event);" cliente_id="<?=$linha['id'];?>">
-              <span class="glyphicon glyphicon-trash"></span>
-            </a>
-          </td>
-        </tr>
-      <?php }
+            echo '<table class="table table-striped table-bordered">
+                <tr>
+                  <td>
+                    <div>
+                      <strong>
+                        <span class="style5">
+                          ID
+                        </span>
+                      </strong>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <strong>
+                        <span class="style5">
+                          Nome
+                        </span>
+                      </strong>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <strong>
+                        <span class="style5">
+                          Fone
+                        </span>
+                      </strong>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <strong>
+                        <span class="style5">
+                          Email
+                        </span>
+                      </strong>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <strong>
+                        <span class="style5">
+                          AÇÕES
+                        </span>
+                      </strong>
+                    </div>
+                  </td>
+                </tr>';
+
+            while($linha=mysqli_fetch_assoc($resultado)){ ?>
+              <tr>
+                <td><?=$linha['id'];?></td>
+                <td><?=$linha['nome'];?></td>
+                <td><?=$linha['fone'];?></td>
+                <td><?=$linha['email'];?></td>
+                <td>
+                    <a class="btn btn-default" onclick="editar(event);" cliente_id_edit="<?=$linha['id'];?>">
+                    <span class="glyphicon glyphicon-edit"></span>
+                  </a>
+
+                  <a class="btn btn-default" onclick="deletar(event);" cliente_id="<?=$linha['id'];?>">
+                    <span class="glyphicon glyphicon-trash"></span>
+                  </a>
+                </td>
+              </tr>
+            <?php }
+          }
+
       echo '</table>';
   }
 
