@@ -1,16 +1,16 @@
 #TRABALHO PROGRAMACAO PHP
 
-Requisitos para o trabalho:
+REQUISITOS:
 
 * Usuarios deve fazer login para acessar o sistema.
 * CRUD COMPLETO ( Create , Read, Update, Delete ).
-* Feature Pesquisar
+* Pesquisar
 * Segunda tabela com pelo menos 4 atributos.
 * Pelo menos um atributo tem que ter máscara de entrada.
 
 ------
 
-## Tecnologias Utilizadas
+## TECNOLOGIAS UTILIZADAS
 
 * PHP - OO
 * MYSQL
@@ -20,6 +20,13 @@ Requisitos para o trabalho:
 * Bootstrap
 * jQuery
 * [jQuery Mask](https://github.com/igorescobar/jQuery-Mask-Plugin)
+
+------
+
+## DIAGRAMA
+
+![alt text](http://edu.jef.link/controleclientes/assets/img/diagrama.png "Diagramas")
+
 
 ------
 
